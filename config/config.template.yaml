@@ -1,0 +1,19 @@
+# Configuration file for PDF Analyzer
+
+# Gemini AI Configuration
+gemini:
+  api_key: ""  # Set your Gemini API key here https://aistudio.google.com/app/apikey
+  model: "gemini-2.0-flash-lite"  # Model to use; with premium api key it might be better to use
+                                  # gemini-2.5-flash
+
+# File Paths
+paths:
+  pdf_directory: "pdfs"                # Directory containing PDF files
+  questions_file: "config/questions.yaml"    # File containing questions to ask
+  output_file: "output.md"  # Output markdown file
+  log_file: "logs/extraction_{timestamp}.log"  # Log file path (use {timestamp} for auto-generated timestamp)
+
+# Processing Options
+options:
+  log_level: "INFO"                   # Logging level: DEBUG, INFO, WARNING, ERROR
+  confirm_before_processing: true     # Ask for confirmation before processing

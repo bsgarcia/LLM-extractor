@@ -1,0 +1,25 @@
+questions:
+  - "Comment on how the attribution to groups was implemented  (randomization type). Also was it 
+  random, pseudo-random (when matched for age/gender baseline, etc...) or cluster-random (e.g. by classroom)?"
+  - "Find the sample size WITHOUT the drop outs (i.e. the final N used in the analysis).
+  Same thing but depending on groups. What was the number of participants (included in analysis) in the training groups? And in control groups (if any)?"
+  - "Find the inclusion criteria."
+  - "Find the exclusion criteria."
+  - "What was the training duration? Compute step by step. calculate as follow: e.g. 10-15 minutes/day, 5 days/week for 2 weeks ->
+   =((10*5*2) + (15*5*2)) /2; take the mean between the minimum and maximum"
+  - "What was the CONTROL duration? Compute step by step. calculate as follow: e.g. 10-15 minutes/day, 5 days/week for 2 weeks ->
+   =((10*5*2) + (15*5*2)) /2; take the mean between the minimum and maximum"
+  - "describe the activity of the control group. BAU = business as usual = what participants would normally do during that time"
+  - "Were the assessors blind?"
+  - "Are there primary and secondary outcomes? If yes, what are they? Near transfer? Far transfer?"
+  - "What is the socioeconomic status of the participants? Is there interindividual variability?"
+  - "Do participants have any diagnosis (e.g. ADHD, dyslexia, anxiety, depression, etc...)? If ADHD, specify the subtype (inattentive, hyperactive, combined). Also specify if medicated or not."
+  - "For each task (focus on these dimensions: inhibition, working memory, cognitive flexibility, attention. For other kind of tasks (e.g. intelligence with WAIS), make a 'others' section), specify the task name (e.g. Stroop, Flanker, N-back) and mean and sd of the main performance measure at pre AND post training. 
+  Do this for the training groups but ALSO for the control group."
+
+additional_instructions: "Please provide VERY concise answers. A couple of sentences max. 
+ ALWAYS Quote the text and say where (page/section) you found the information. 
+ If the information is not available, respond with 'NA'. Your output should look like this:
+short answer: <your short answer>
+long answer: <your long answer with details>
+quote: <the quote you found in the paper with page/section reference>"
