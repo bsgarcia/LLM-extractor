@@ -193,6 +193,9 @@ See `requirements.txt` for the complete list:
 - Check the log files in `logs` for detailed error messages
 - Some PDFs may fail due to format issues or API timeouts
 
+## TODOs
+* better output formatting
+
 ## License
 
 This project is licensed under the GNU License.
