@@ -1,0 +1,32 @@
+2025-09-24 17:39:38,918 - INFO - Logging to file: logs/extraction_2025-09-24_17-39-38.log
+2025-09-24 17:39:38,919 - INFO - Gemini AI configured with model: gemini-2.5-flash
+2025-09-24 17:39:38,930 - INFO - Loaded 12 questions from config/questions.yaml
+2025-09-24 17:39:38,931 - INFO - Loaded additional instructions: Please provide VERY concise answers. A couple of sentences max. ALWAYS Quote the text and say where ...
+2025-09-24 17:39:38,944 - INFO - Loaded 12 questions from config/questions.yaml
+2025-09-24 17:39:38,946 - INFO - Loaded additional instructions: Please provide VERY concise answers. A couple of sentences max. ALWAYS Quote the text and say where ...
+2025-09-24 17:39:38,947 - INFO - Processing PDF: pdfs\Aydmune et al. - 2019 - Inhibitory Processes Training for School-age Child.pdf
+2025-09-24 17:39:38,947 - INFO - Uploading PDF file: Aydmune et al. - 2019 - Inhibitory Processes Training for School-age Child.pdf
+2025-09-24 17:39:41,682 - INFO - PDF upload completed in 2.73s
+2025-09-24 17:39:41,682 - INFO - Successfully uploaded 'Aydmune et al. - 2019 - Inhibitory Processes Training for School-age Child.pdf' as: files/7s576om54h4h
+2025-09-24 17:39:41,683 - INFO - Processing question 1/12 for Aydmune et al. - 2019 - Inhibitory Processes Training for School-age Child.pdf
+2025-09-24 17:39:45,811 - INFO - Gemini structured query completed in 4.13s
+2025-09-24 17:39:45,812 - INFO - Processing question 2/12 for Aydmune et al. - 2019 - Inhibitory Processes Training for School-age Child.pdf
+2025-09-24 17:40:28,002 - INFO - Gemini structured query completed in 42.19s
+2025-09-24 17:40:28,004 - INFO - Processing question 3/12 for Aydmune et al. - 2019 - Inhibitory Processes Training for School-age Child.pdf
+2025-09-24 17:40:54,260 - INFO - Generated 12 column names using Gemini AI with structured output
+2025-09-24 17:40:54,268 - INFO - Uploading PDF file: Aydmune et al. - 2019 - Inhibitory Processes Training for School-age Child.pdf
+2025-09-24 17:40:56,869 - INFO - PDF upload completed in 2.60s
+2025-09-24 17:40:56,869 - INFO - Successfully uploaded 'Aydmune et al. - 2019 - Inhibitory Processes Training for School-age Child.pdf' as: files/gfcymdoj0i6w
+2025-09-24 17:40:56,870 - INFO - Processing question 1/12 for Aydmune et al. - 2019 - Inhibitory Processes Training for School-age Child
+2025-09-24 17:41:00,987 - INFO - Gemini structured query completed in 4.12s
+2025-09-24 17:41:00,991 - INFO - Added new section for Aydmune et al. - 2019 - Inhibitory Processes Training for School-age Child
+2025-09-24 17:41:01,002 - INFO - Processing question 1/12 for Aydmune et al. - 2019 - Inhibitory Processes Training for School-age Child
+2025-09-24 17:41:25,127 - INFO - Gemini structured query completed in 24.12s
+2025-09-24 17:41:25,129 - INFO - Updated existing section for Aydmune et al. - 2019 - Inhibitory Processes Training for School-age Child
+2025-09-24 17:41:25,133 - INFO - Processing question 1/12 for Aydmune et al. - 2019 - Inhibitory Processes Training for School-age Child
+2025-09-24 17:41:30,411 - INFO - Gemini structured query completed in 5.28s
+2025-09-24 17:41:30,414 - INFO - Updated existing section for Aydmune et al. - 2019 - Inhibitory Processes Training for School-age Child
+2025-09-24 17:41:30,425 - INFO - Processing question 1/12 for Aydmune et al. - 2019 - Inhibitory Processes Training for School-age Child
+2025-09-24 17:41:36,529 - INFO - Gemini structured query completed in 6.10s
+2025-09-24 17:41:36,532 - INFO - Updated existing section for Aydmune et al. - 2019 - Inhibitory Processes Training for School-age Child
+2025-09-24 17:41:36,542 - INFO - Processing question 1/12 for Aydmune et al. - 2019 - Inhibitory Processes Training for School-age Child
