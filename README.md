@@ -3,10 +3,11 @@
 A tool for extracting structured information from PDF documents using Google's Gemini AI API. The tool processes multiple PDFs and answers predefined research questions about each document.
 
 ## Quick Start
+NB: Tested with python 3.12.0.
 
 1. **Install dependencies:**
    ```bash
-   pip install -r requirements.txt
+   python -m pip install -r requirements.txt
    ```
 
 2. **Set up configuration:**
@@ -38,8 +39,9 @@ gemini:
 paths:
   pdf_directory: "pdfs"                # Directory containing PDF files
   questions_file: "config/questions.yaml"    # File containing questions to ask
-  output_file: "output.md"             # Output markdown file
-  log_file: "logs/extraction_{timestamp}.log"  # Log file with timestamp
+  output_file: "output/md/extraction_{timestamp}.md"     # Output markdown file with timestamp
+  xlsx_output: "output/xlsx/extraction_{timestamp}.xlsx" # Excel output file with timestamp
+  log_file: "logs/extraction_{timestamp}.log"            # Log file with timestamp
 
 # Processing Options
 options:
@@ -109,7 +111,7 @@ The notebook offers two processing options:
 
 ### Results File
 
-Processed results are saved to a markdown file (default: `output.md`) with the following structure:
+Processed results are saved to a markdown file  with the following structure:
 
 ```markdown
 # PDF Analysis Results
@@ -155,22 +157,63 @@ Detailed logs are saved to the `logs` directory with timestamps:
 ├── modules/
 │   └── llm_extractor.py     # Main extraction logic
 ├── pdfs/                    # Place your PDF files here
+├── output/                  # Generated output files
+│   ├── md/                  # Markdown files with complete structured results
+│   └── xlsx/                # Excel files with short answers only
 ├── logs/                    # Processing logs (auto-created)
 ├── run_extraction.py        # Command-line script
 ├── run_extraction.ipynb     # Jupyter notebook version
-├── requirements.txt         # Python dependencies
-└── output.md               # Results file (auto-generated)
+└── requirements.txt         # Python dependencies
+```
+
+## Output Formats
+
+The tool generates two types of output files with timestamps in organized folders:
+
+### Markdown Output (`output/md/`)
+- **Filename:** `extraction_YYYY-MM-DD_HH-MM-SS.md`
+- **Content:** Complete structured results for each PDF including:
+  - **Q1, Q2, etc.:** Numbered questions with full context
+  - **Short Answer:** Brief 1-2 sentence responses
+  - **Long Answer:** Detailed explanations with statistical data, formatted with proper bullet points and task names
+  - **Quote:** Direct quotes from the paper with page/section references
+
+### Excel Output (`output/xlsx/`)
+- **Filename:** `extraction_YYYY-MM-DD_HH-MM-SS.xlsx`
+- **Content:** Tabular format with only short answers for quick analysis
+  - One row per PDF
+  - One column per question (automatically generated column names)
+  - Ideal for quantitative analysis and comparison across studies
+
+### Example Output Structure
+
+**Markdown format:**
+```markdown
+**Q12:** For each task, specify the task name and mean and sd of the main performance measure at pre AND post training.
+
+> **Short Answer:**
+> Performance metrics for inhibition, working memory, cognitive flexibility, and fluid intelligence tasks were collected across three training groups and control group at pretest, posttest1, and posttest2.
+
+> **Long Answer:**
+> Performance metrics are as follows:
+>
+> *   **Response Inhibition** (Task: Stop-signal reaction time - SSRT):
+>     *   **Response inhibition EG**: Pretest: M = 522.66, SD = 102.97; Posttest1: M = 478.63, SD = 94.53
+>     *   **Control Group**: Pretest: M = 476.22, SD = 160.98; Posttest1: M = 484.32, SD = 139.45
 ```
 
 ## Features
 
 - **Batch processing:** Handle multiple PDFs automatically
+- **Organized output:** Timestamped files in structured folders (md/ and xlsx/)
+- **Dual format output:** Complete markdown reports + concise Excel summaries
+- **Numbered questions:** Q1, Q2, etc. with proper formatting and statistical data presentation
 - **Configurable questions:** Customize research questions via YAML
 - **Progress tracking:** Visual progress bars in notebook mode
 - **Detailed logging:** Comprehensive logs with timing information
 - **Error handling:** Graceful handling of API errors and file issues
 - **Resume capability:** Can reprocess individual files by updating sections
-- **Flexible output:** Structured markdown output with quotes and references
+- **Structured formatting:** Blockquote formatting with bold headers and properly formatted statistical content
 
 ## Dependencies
 
@@ -193,8 +236,12 @@ See `requirements.txt` for the complete list:
 - Check the log files in `logs` for detailed error messages
 - Some PDFs may fail due to format issues or API timeouts
 
-## TODOs
-* better output formatting
+## Recent Updates
+
+- ✅ **Improved Output Organization:** Files now organized in `output/md/` and `output/xlsx/` folders with timestamps
+- ✅ **Enhanced Formatting:** Questions numbered (Q1, Q2, etc.) with blockquote formatting and bold headers
+- ✅ **Statistical Data Formatting:** LLM automatically formats statistical content with proper spacing and bullet points
+- ✅ **Dual Output Formats:** Complete markdown reports + Excel summaries for different use cases
 
 ## License
 

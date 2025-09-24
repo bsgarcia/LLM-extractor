@@ -7,6 +7,7 @@ import os
 import sys
 import yaml
 import logging
+from datetime import datetime
 from modules.llm_extractor import LLMExtractor
 
 def load_config(config_file="config/config.yaml"):
@@ -59,11 +60,28 @@ def main():
     # Get model name
     model_name = gemini_config.get('model', 'gemini-2.0-flash-exp')
     
-    # Get file paths
+    # Get file paths with timestamp replacement
+    timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
     pdf_dir = paths_config.get('pdf_directory', 'pdfs')
     questions_file = paths_config.get('questions_file', 'config/questions.yaml')
+    
+    # Handle timestamp replacement in file paths
     output_file = paths_config.get('output_file', 'output.md')
+    if '{timestamp}' in output_file:
+        output_file = output_file.replace('{timestamp}', timestamp)
+    
+    output_xlsx = paths_config.get('output_xlsx', None)  # Get Excel output path
+    if output_xlsx and '{timestamp}' in output_xlsx:
+        output_xlsx = output_xlsx.replace('{timestamp}', timestamp)
+    
     log_file = paths_config.get('log_file', None)  # Get log file from config
+    
+    # Create necessary directories
+    os.makedirs(os.path.dirname(output_file), exist_ok=True)
+    if output_xlsx:
+        os.makedirs(os.path.dirname(output_xlsx), exist_ok=True)
+    if log_file:
+        os.makedirs(os.path.dirname(log_file), exist_ok=True)
     
     # Get options
     confirm_before_processing = options_config.get('confirm_before_processing', True)
@@ -73,6 +91,8 @@ def main():
     print(f"  PDF Directory: {pdf_dir}")
     print(f"  Questions File: {questions_file}")
     print(f"  Output File: {output_file}")
+    if output_xlsx:
+        print(f"  Excel Output File: {output_xlsx}")
     print(f"  Log File: {log_file if log_file else 'Console only'}")
     print()
     
@@ -101,11 +121,13 @@ def main():
             return 0
     
     try:
-        # Create analyzer and run (removed max_text_length parameter)
+        # Create analyzer and run with Excel output support
         print("Starting analysis...")
         analyzer = LLMExtractor(api_key, model_name, log_file=log_file)
-        analyzer.process_directory(pdf_dir, questions_file, output_file)
+        analyzer.process_directory(pdf_dir, questions_file, output_file, xlsx_output=output_xlsx)
         print(f"Analysis complete! Results saved to: {output_file}")
+        if output_xlsx:
+            print(f"Excel results saved to: {output_xlsx}")
         return 0
         
     except Exception as e:

@@ -5,12 +5,15 @@ gemini:
   api_key: ""  # Set your Gemini API key here https://aistudio.google.com/app/apikey
   model: "gemini-2.0-flash-lite"  # Model to use; with premium api key it might be better to use
                                   # gemini-2.5-flash
+                                  # with free api key -> gemini-2.0-flash-lite or gemini-2.0-flash/gemini-2.5-flash if available (often saturated);
 
 # File Paths
 paths:
   pdf_directory: "pdfs"                # Directory containing PDF files
   questions_file: "config/questions.yaml"    # File containing questions to ask
-  output_file: "output.md"  # Output markdown file
+  output_file: "output/md/extraction_{timestamp}.md"  # Output markdown file (use {timestamp} for auto-generated timestamp)
+  output_xlsx: "output/xlsx/extraction_{timestamp}.xlsx"          # Output Excel file (optional); by default only the short answers are saved in the sheet
+                                       # and column names are inferred from the questions.
   log_file: "logs/extraction_{timestamp}.log"  # Log file path (use {timestamp} for auto-generated timestamp)
 
 # Processing Options
