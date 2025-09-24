@@ -1,3 +1,6 @@
 .venv
 config/config.yaml
-__pycache__
+# ignore all __pycache__ folders
+**/__pycache__/
+# ignore all .pyc files
+**/*.pyc
